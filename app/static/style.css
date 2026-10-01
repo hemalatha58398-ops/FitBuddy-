@@ -4,7 +4,8 @@ body {
   background: linear-gradient(rgba(10,10,15,.82), rgba(10,10,15,.92)),
               radial-gradient(circle at 20% 20%, #ff6a00 0, transparent 45%),
               radial-gradient(circle at 80% 80%, #0072ff 0, transparent 45%), #0b0b10;
-  background-attachment: fixed;git init
+  background-attachment: fixed;
+}
 .container { display: flex; flex-direction: column; align-items: center; padding: 32px 16px; }
 .card {
   background: rgba(0,0,0,0.65); padding: 30px; border-radius: 14px;
