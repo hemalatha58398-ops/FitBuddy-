@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>All Users - FitBuddy</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <div class="card wide">
+    <h1>All Users</h1>
+    <div class="table-wrap">
+      <table>
+        <tr>
+          <th>Name</th><th>ID</th><th>Age</th><th>Weight</th><th>Goal</th>
+          <th>Intensity</th><th>Original Plan</th><th>Updated Plan</th><th>Action</th>
+        </tr>
+        {% for user in users %}
+        <tr>
+          <td>{{ user.username }}</td>
+          <td>{{ user.user_id }}</td>
+          <td>{{ user.age }}</td>
+          <td>{{ user.weight }}</td>
+          <td>{{ user.goal }}</td>
+          <td>{{ user.intensity }}</td>
+          <td><pre>{{ user.original_plan }}</pre></td>
+          <td><pre>{{ user.updated_plan or "—" }}</pre></td>
+          <td>
+            <form action="/delete-user" method="post" onsubmit="return confirm('Delete this user?')">
+              <input type="hidden" name="user_id" value="{{ user.user_id }}">
+              <button class="del" type="submit">Delete</button>
+            </form>
+          </td>
+        </tr>
+        {% else %}
+        <tr><td colspan="9">No users yet.</td></tr>
+        {% endfor %}
+      </table>
+    </div>
+    <div class="nav"><a href="/">← Back to home</a></div>
+  </div>
+</body>
+</html>

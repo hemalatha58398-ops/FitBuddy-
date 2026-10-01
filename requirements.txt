@@ -1,0 +1,7 @@
+git initfastapi
+uvicorn
+jinja2
+sqlalchemy
+python-multipart
+python-dotenv
+google-genai
